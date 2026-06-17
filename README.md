@@ -1,40 +1,72 @@
-# 🏡 House Price Prediction & Model Evaluation
+# 🏡 House Price Prediction (End-to-End ML Pipeline)
 
-An end-to-end Machine Learning pipeline implemented in Python to predict real estate prices. This project demonstrates data cleaning, feature scaling, model training, performance evaluation, and visual comparison across multiple regression algorithms.
+[![Python Version](https://img.shields.io/badge/python-3.10%2B-blue.svg)](https://www.python.org/)
+[![ML Framework](https://img.shields.io/badge/scikit--learn-latest-orange.svg)](https://scikit-learn.org/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-## 📊 Business Objective
-The goal is to analyze real estate data and build an accurate predictive model to estimate house prices based on physical attributes. Such models are crucial for real estate platforms and investors to assess property values dynamically.
+An end-to-end Machine Learning project designed to predict real estate prices based on various structural and geographical features. This repository demonstrates data preprocessing, feature scaling, multi-model training, and performance benchmarking.
 
-## 🛠️ Tech Stack & Libraries
-- **Language:** Python
-- **Data Manipulation:** Pandas, NumPy
-- **Machine Learning:** Scikit-Learn
-- **Data Visualization:** Seaborn, Matplotlib
+---
 
-## 💾 Dataset Features
-After dropping non-predictive spatial columns (like `zipcode`, `lat`, `long`), the model learns from the following primary features:
-- `bedrooms`, `bathrooms`
-- `m_living` (Square footage of the home)
-- `sqft_lot` (Square footage of the lot)
-- `floors` (Total floors in the house)
-- `grade` (Overall grade given to the housing unit)
-- `yr_built` (Year built)
+## 📌 Table of Contents
+* [Project Overview](#-project-overview)
+* [Dataset Description](#-dataset-description)
+* [Key Features & Pipeline](#-key-features--pipeline)
+* [Model Performance Benchmarking](#-model-performance-benchmarking)
+* [Getting Started & Installation](#-getting-started--installation)
+* [How to Run](#-how-to-run)
+* [Future Roadmap](#-future-roadmap)
 
-## ⚙️ Machine Learning Pipeline
-1. **Data Preprocessing:** Handled missing values (`dropna`), removed duplicates (`drop_duplicates`), and dropped irrelevant features.
-2. **Feature Scaling:** Applied `StandardScaler` exclusively to the features fed into Linear Regression, preserving the original scale for tree-based algorithms.
-3. **Model Selection:** Trained and cross-evaluated three diverse regression models:
-   - **Linear Regression** (Baseline parametric model)
-   - **Decision Tree Regressor** (Non-linear single-tree approach)
-   - **Random Forest Regressor** (Ensemble bagging approach)
+---
 
-## 📈 Performance & Evaluation Metrics
-The models are evaluated using Mean Absolute Error (**MAE**), Root Mean Squared Error (**RMSE**), and the Coefficient of Determination (**R² Score**). 
+## 🔍 Project Overview
+Predicting property values is a fundamental regression problem in Data Science. This project implements a clean, reproducible Machine Learning pipeline that screens multiple algorithms (`Linear Regression`, `Random Forest`, and `Decision Tree`) to identify the most accurate model for predicting house prices based on historical data.
 
-The output generates a consolidated comparison dashboard:
+---
 
-```text
-               name            MAE           RMSE        R2
-0  Linear Regression  125430.123456  210450.654321  0.654321
-1      Random Forest   95400.987654  152300.123456  0.789123
-2      Decision Tree  110200.456789  180150.987654  0.712345
+## 📊 Dataset Description
+The model evaluates houses based on **7 critical structural features** after filtering out noise:
+
+| Feature Name | Description |
+| :--- | :--- |
+| `bedrooms` | Number of bedrooms in the house |
+| `bathrooms` | Number of bathrooms |
+| `m_living` | Total living area square footage |
+| `sqft_lot` | Total lot size square footage |
+| `floors` | Number of floors |
+| `grade` | Overall grade given to the housing unit (based on construction quality) |
+| `yr_built` | The year the house was initially built |
+| **`price` (Target)** | The target price variable to predict |
+
+---
+
+## ⚙️ Key Features & Pipeline
+1. **Data Cleaning & Engineering:** Automatic handling of duplicates via `.drop_duplicates()` and dropping missing records with `.dropna()`.
+2. **Feature Optimization:** Strategic dropping of highly redundant or noisy features (e.g., `zipcode`, `yr_renovated`, `lat`, `long`) to avoid overfitting.
+3. **Data Scaling:** Applied robust feature scaling using `StandardScaler` to normalize numerical variables.
+4. **Multi-Model Evaluation:** Simultaneous training and metrics collection across Linear, Tree, and Ensemble models.
+
+---
+
+## 🏆 Model Performance Benchmarking
+After executing the pipeline on a **80/20 train-test split**, the models generated the following metrics:
+
+| Model Name | MAE | RMSE | $R^2$ Score |
+| :--- | :---: | :---: | :---: |
+| **Linear Regression** | *Calculated Value* | *Calculated Value* | *e.g., 0.68* |
+| **Random Forest** | *Calculated Value* | *Calculated Value* | *e.g., 0.74* |
+| **Decision Tree** | *Calculated Value* | *Calculated Value* | *e.g., 0.65* |
+
+> 💡 **Key Takeaway:** Ensemble methods like *Random Forest* typically outperform single trees by reducing variance and avoiding overfitting via bootstrap aggregating.
+
+---
+
+## 💻 Getting Started & Installation
+
+### Prerequisites
+Make sure you have **Python 3.10+** installed on your system.
+
+### 1. Clone the repository
+```bash
+git clone [https://github.com/mortaza007iraqi-cyber/House-Price-Prediction-ML.git](https://github.com/mortaza007iraqi-cyber/House-Price-Prediction-ML.git)
+cd House-Price-Prediction-ML
