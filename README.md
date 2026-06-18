@@ -65,9 +65,10 @@ After executing the pipeline on a **80/20 train-test split**, the models generat
 
 ### Prerequisites
 Make sure you have **Python 3.10+** installed on your system.
-## Murtada G. Hameed
 
 ### 1. Clone the repository
 ```bash
 git clone [https://github.com/mortaza007iraqi-cyber/House-Price-Prediction-ML.git](https://github.com/mortaza007iraqi-cyber/House-Price-Prediction-ML.git)
 cd House-Price-Prediction-ML
+
+## Murtada G. Hameed
